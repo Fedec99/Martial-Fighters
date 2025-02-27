@@ -348,12 +348,13 @@ header .ham-burger.active span:nth-child(2){
 
 .schedule .content .timing .table{
 	width: 100%;
-	border-collapse: collapse;
 }
 
 .schedule .content .timing .table td{
 	border:1px solid #dfdfdf;
-	padding: 8px;
+	padding: 35px;
+	position: relative;
+	top: 75px;
 	font-size: 15px;
 	text-align: center;
 	color:#222222;
