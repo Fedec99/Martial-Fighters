@@ -183,32 +183,42 @@
 <!-- End Gallery -->
 
  <!-- Start Contact -->
-  <section class="contact" id="contact">
-     <div class="container">
-        <div class="content">
-            <div class="box form wow slideInLeft">
-            </div>
-            <div class="box text wow slideInRight">
-                 <h2>Get Connected with Gym</h2>
-                  <div class="info">
-                      <ul>
-                          <li><span class="fa fa-map-marker"></span>Via Casilina sud, km 140,200, Via Casilina, 03043 Cassino FR</li>
-                          <li><span class="fa fa-phone"></span>+39 331 524 7772</li>
-                          <li><span class="fa fa-envelope"></span>ciroilre@miservelaemail.com</li>
-                      </ul>
-                  </div>
-                  <div class="social">
-                       <a href=""><span class="fa fa-facebook"></span></a>
-                       <a href=""><span class="fa fa-youtube-play"></span></a>
-                  </div>
+ <section class="contact" id="contact">
+	<div class="container">
+	   <div class="content">
+		   <div class="box form wow slideInLeft">
+			<form id="contact-form">
+				<input type="text" name="user_name" placeholder="Enter Name" required>
+				<input type="email" name="user_email" placeholder="Enter Email" required>
+				<input type="text" name="user_mobile" placeholder="Enter Mobile" required>
+				<textarea name="message" placeholder="Enter Message" required></textarea>
+				<button type="submit">Send Message</button>
+			</form>
+			
+			 
+		   </div>
+		   <div class="box text wow slideInRight">
+				<h2>Get Connected with Gym</h2>
+				 <div class="info">
+					 <ul>
+						 <li><span class="fa fa-map-marker"></span>Via Casilina sud, km 140,200, Via Casilina, 03043 Cassino FR</li>
+						 <li><span class="fa fa-phone"></span>+39 331 524 7772</li>
+						 <li><span class="fa fa-envelope"></span> ciroilre@miservelaemail.com</li>
+					 </ul>
+				 </div>
+				 <div class="social">
+					  <a href=""><span class="fa fa-facebook"></span></a>
+					  <a href=""><span class="fa fa-instagram"></span></a>
+					  <a href=""><span class="fa fa-youtube-play"></span></a>
+				 </div>
 
-                  <div class="copy">
-                      PowerBy &copy; Federico Carcone "Effsi"
-                  </div>
-            </div>
-        </div>
-     </div>
-  </section>
+				 <div class="copy">
+				   PowerBy &copy; Federico Carcone "Effsi"
+				 </div>
+		   </div>
+	   </div>
+	</div>
+ </section>
  <!-- End Contact -->
 
 
@@ -265,11 +275,60 @@
     );
     wow.init();
   </script>
-</body>
-</html>
 
-
-
-
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+  <script>
+	  (function () {
+		  emailjs.init("Q1ZteCiJrCti5AU9H");
+	  })();
+	  
+	  document.addEventListener("DOMContentLoaded", function () {
+		  // Inizializza EmailJS con la tua Public Key
+		  emailjs.init("Q1ZteCiJrCti5AU9H"); 
+		  
+		  // Seleziona il form
+		  const form = document.querySelector("form");
+		  
+		  // Aggiunge un event listener per il submit
+		  form.addEventListener("submit", function (event) {
+			  event.preventDefault(); // Evita il comportamento predefinito di ricaricare la pagina
+			  
+			  // Controllo per assicurarsi che tutti i campi siano compilati
+			  let name = form.querySelector("input[placeholder='Enter Name']").value.trim();
+			  let email = form.querySelector("input[placeholder='Enter Email']").value.trim();
+			  let mobile = form.querySelector("input[placeholder='Enter Mobile']").value.trim();
+			  let message = form.querySelector("textarea[placeholder='Enter Message']").value.trim();
+			  
+			  if (!name || !email || !mobile || !message) {
+				  alert("Compila tutti i campi prima di inviare il messaggio.");
+				  return;
+				}
+				
+				// Invia il modulo con EmailJS
+				emailjs.sendForm("service_k1oyu6u", "template_sfm537g", form, "Q1ZteCiJrCti5AU9H")
+				.then(
+					function (response) {
+						console.log("SUCCESS!", response);
+						alert("Email inviata con successo!");
+						form.reset(); // Resetta il modulo dopo l'invio
+					},
+					function (error) {
+						console.log("FAILED...", error);
+						alert("Errore nell'invio dell'email. Riprova.");
+					}
+					);
+				});
+			});
+		</script>
+			
+		<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+		<script src="script.js"></script>
+		
+		</body>
+		</html>
+		
+		
+		
+		
 
 

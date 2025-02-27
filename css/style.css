@@ -415,17 +415,9 @@ header .ham-burger.active span:nth-child(2){
 	background-color: #222222;
 }
 
-.contact .content {
-    display: flex;
-    justify-content: center; /* Centra orizzontalmente */
-    align-items: center; /* Centra verticalmente (se necessario) */
-    flex-direction: column; /* Dispone i contenuti in colonna */
-    text-align: center; /* Centra il testo */
-}
-
-.contact .container {
-    max-width: 600px; /* Riduci la larghezza */
-    margin: 0 auto; /* Centra il contenitore */
+.contact .content{
+	-webkit-display: flex;
+	display: flex;
 }
 
 .contact .content .box{
@@ -548,7 +540,6 @@ header .ham-burger.active span:nth-child(2){
 	color:#c5c5c5;
 	font-size: 15px;
 }
-
 
 
 
