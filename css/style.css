@@ -312,6 +312,14 @@ header .ham-burger.active span:nth-child(2){
 	background-color: #c11325;
 }
 
+.service .img img {
+	width: 100%;
+	height: auto;
+	display: block;
+	max-width: 100%;
+}
+
+
 .service .content{
 	-webkit-display:flex;
 	display:flex;
@@ -451,9 +459,7 @@ header .ham-burger.active span:nth-child(2){
 
 .schedule .content .timing .table td{
 	border:1px solid #dfdfdf;
-	padding: 35px;
-	position: relative;
-	top: 75px;
+	padding: 15px;
 	font-size: 15px;
 	text-align: center;
 	color:#222222;
@@ -473,6 +479,22 @@ header .ham-burger.active span:nth-child(2){
 	border-color:transparent;
 }
 
+.calendar-wrapper {
+	position: relative;
+	padding-bottom: 75%; 
+	height: 0;
+	overflow: hidden;
+	max-width: 100%;
+  }
+  
+  .calendar-wrapper iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+  }
+  
 
 /*Gallery Section*/
 
@@ -683,6 +705,7 @@ header .ham-burger.active span:nth-child(2){
 .service .content .box {
     flex: 0 0 100%;
     max-width: 100%;
+	margin-top: 15px;
 }
 .classes .content .class-items .item{
 	flex-wrap: wrap;
@@ -727,7 +750,7 @@ flex: 0 0 100%;
     flex: 0 0 100%;
     max-width: 100%;
 }
-}
+
 
 /*if screen width is less than or equal to 550px then*/
 @media(max-width: 550px){
@@ -735,5 +758,4 @@ flex: 0 0 100%;
       font-size: 30px;
   }
 }
-
-
+}
