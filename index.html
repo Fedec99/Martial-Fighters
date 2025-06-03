@@ -6,6 +6,9 @@
 	<link rel="stylesheet" href="css/animate.css">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="icon" type="image/x-icon" href="images/favicon.ico">
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+	<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
 
 	<style>
@@ -363,24 +366,31 @@
 			
 		</div>
 		<div class="box text wow slideInRight">
-				<h2>Get Connected with Gym</h2>
-				<div class="info">
-					<ul>
-						<li><span class="fa fa-map-marker"></span>Via Casilina sud, km 140,200, Via Casilina, 03043 Cassino FR</li>
-						<li><span class="fa fa-phone"></span>+39 331 524 7772</li>
-						<li><span class="fa fa-envelope"></span> martialfightersitalia@gmail.com</li>
-					</ul>
-				</div>
-				<div class="social">
-					<a href="https://www.facebook.com/martialfightersitalia/?profile_tab_item_selected=mentions&_rdr" target="_blank"><span class="fa fa-facebook"></span></a>
-					<a href="https://www.instagram.com/martialfighters/" target="_blank"><span class="fa fa-instagram"></span></a>
-					<a href="https://www.youtube.com/channel/UCNKpRyVP5a_CHMAxvL-IzZw" target="_blank"><span class="fa fa-youtube-play"></span></a>
-				</div>
+  <h2>Get Connected with Gym</h2>
+  <div class="info">
+    <ul>
+      <li>
+        <span class="fa fa-map-marker"></span>
+        Via Casilina sud, km 140,200, Via Casilina, 03043 Cassino FR
+        
+        <div id="map" style="height: 300px; width: 100%; margin-top: 10px; border-radius: 10px;"></div>
+      </li>
+      <li><span class="fa fa-phone"></span>+39 331 524 7772</li>
+      <li><span class="fa fa-envelope"></span> martialfightersitalia@gmail.com</li>
+    </ul>
+  </div>
 
-				<div class="copy">
-				&copy;2025 All Right Reserved | Powered By Federico Carcone "Effsi"
-				</div>
-		</div>
+  <div class="social">
+    <a href="https://www.facebook.com/martialfightersitalia/?profile_tab_item_selected=mentions&_rdr" target="_blank"><span class="fa fa-facebook"></span></a>
+    <a href="https://www.instagram.com/martialfighters/" target="_blank"><span class="fa fa-instagram"></span></a>
+    <a href="https://www.youtube.com/channel/UCNKpRyVP5a_CHMAxvL-IzZw" target="_blank"><span class="fa fa-youtube-play"></span></a>
+  </div>
+
+  <div class="copy">
+    &copy;2025 All Right Reserved | Powered By Federico Carcone "Effsi"
+  </div>
+</div>
+
 	</div>
 	</div>
 </section>
@@ -481,5 +491,21 @@
 		<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 		<script src="script.js"></script>
 		
+		<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const map = L.map('map').setView([41.48883, 13.84439], 15);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution: '© OpenStreetMap contributors'
+    }).addTo(map);
+
+    L.marker([41.48883, 13.84439])
+      .addTo(map)
+      .bindPopup('Martial Fighters Italia')
+      .openPopup();
+  });
+</script>
+
 		</body>
 		</html>
